@@ -3,11 +3,10 @@ import type { QuizQuestion } from '@/types';
 interface QuizCardProps {
   question: QuizQuestion;
   questionNumber: number;
-  timeLeft: number;
   hintsRevealed: number;
 }
 
-export default function QuizCard({ question, questionNumber, timeLeft, hintsRevealed }: QuizCardProps) {
+export default function QuizCard({ question, questionNumber, hintsRevealed }: QuizCardProps) {
   const game = question.game;
   const pointsLabel = hintsRevealed <= 1 ? '300pt' : hintsRevealed <= 2 ? '200pt' : '100pt';
 
