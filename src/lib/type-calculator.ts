@@ -137,7 +137,7 @@ export function calculatePercentile(
  */
 export function generateTagline(
   type: GamerType,
-  stats: QuizResult["stats"],
+  _stats: QuizResult["stats"],
   score: number,
   stage: number = 1
 ): string {

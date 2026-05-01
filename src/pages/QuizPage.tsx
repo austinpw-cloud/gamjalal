@@ -36,7 +36,6 @@ export default function QuizPage({ stage, onNavigate }: QuizPageProps) {
   const [feedbackPoints, setFeedbackPoints] = useState(0);
   const [showFeedback, setShowFeedback] = useState(false);
   const [timerKey, setTimerKey] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(15);
   const [hintsRevealed, setHintsRevealed] = useState(1);
   const [countdownNum, setCountdownNum] = useState(3);
 
@@ -272,7 +271,6 @@ export default function QuizPage({ stage, onNavigate }: QuizPageProps) {
             onExpire={handleTimerExpire}
             isPaused={phase !== 'playing'}
             onTick={(t) => {
-              setTimeLeft(t);
               if (t <= 12 && hintsRevealed < 2) setHintsRevealed(2);
               if (t <= 7 && hintsRevealed < 3) setHintsRevealed(3);
               if (soundEnabled && t <= 3 && t > 2.9) playTimerWarning();
@@ -289,7 +287,6 @@ export default function QuizPage({ stage, onNavigate }: QuizPageProps) {
           <QuizCard
             question={currentQuestion}
             questionNumber={session.currentIndex + 1}
-            timeLeft={timeLeft}
             hintsRevealed={hintsRevealed}
           />
         </div>
